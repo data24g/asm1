@@ -113,7 +113,7 @@ namespace asm1
             double price = Price();
             double VAT = price * 0.1;
             Console.WriteLine($"VAT = Enviroment protection fees : {VAT} VND ");
-            double fees = price * 0.1;
+            double fees = (price + VAT) * 0.1;
             Console.WriteLine($"VAT = Enviroment protection fees : {fees} VND ");
             double bill = price + VAT + fees;
             Console.WriteLine($"Total water bill: {bill} VND ");
