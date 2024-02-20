@@ -40,9 +40,6 @@ namespace asm1
             while (lWater > nWater)
             {
                 Console.WriteLine("The water meter readings of last month can't be more than the water meter readings of this month. Please enter the input again");
-                Console.Write("Enter water meter readings of last month: ");
-                lWater = Convert.ToDouble(Console.ReadLine());
-
                 Console.Write("Enter water meter readings of this month: ");
                 nWater = Convert.ToDouble(Console.ReadLine());
             }
@@ -111,15 +108,15 @@ namespace asm1
         static double Bill()
         {
             double price = Price();
-            double VAT = price * 0.1;
-            Console.WriteLine($"VAT = Enviroment protection fees : {VAT} VND ");
-            double fees = (price + VAT) * 0.1;
-            Console.WriteLine($"VAT = Enviroment protection fees : {fees} VND ");
+            double fees = price * 0.1;
+            Console.WriteLine($"Enviroment protection fees : {fees} VND ");
+            double VAT = (price + fees) * 0.1;
+            Console.WriteLine($"VAT : {VAT} VND ");
             double bill = price + VAT + fees;
             Console.WriteLine($"Total water bill: {bill} VND ");
             return bill;
         }
-
+            
         static void Main(string[] args)
         {
 
