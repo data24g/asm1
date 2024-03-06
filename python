@@ -1,0 +1,37 @@
+def inputnumber(prompt):
+    while True:
+        try:
+            number = float(input(prompt))
+            return number
+        except ValueError:
+            print("Erorrs! Enter again.......")
+
+def calculate(grades, credits):
+    product = 0
+    for i in range(len(grades)):
+        product += grades[i] * credits[i]
+    return product / sum(credits)
+
+subjects = [" C# ", " Python ", " Java "]
+credits = [] 
+grades = []   
+totalgrades = []
+totalcredits = []
+name = []
+name = input("Enter your name: ")
+
+for subject in subjects:
+    grade = inputnumber(f"Enter grade of{subject}: ")
+    grades.append(grade)
+    credit = inputnumber(f"Enter credit of{subject}: ")
+    credits.append(credit)
+
+totalgrades = sum(grades)
+print(f"total of grades of {name} is :{totalgrades} ")
+totalcredits = sum(credits)
+print(f"total of credits of {name} is :{totalcredits}")
+result = calculate(grades, credits)
+print(f"GPA score: {result}")
+f = open("scorefile.txt","w")
+f.write(f"name: {name}\t\ngrades: {grades}\t\ncredis: {credits}\t\nGPA: {result}")
+f.close()
